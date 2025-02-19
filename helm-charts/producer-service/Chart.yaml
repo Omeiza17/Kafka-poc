@@ -1,0 +1,6 @@
+apiVersion: v2
+name: producer-service
+description: A Helm chart for deploying a Spring Boot service that functions as an event producer in a Kafka Event-Driven setup
+type: application
+version: 0.1.0
+appVersion: 0.0.1-SNAPSHOT

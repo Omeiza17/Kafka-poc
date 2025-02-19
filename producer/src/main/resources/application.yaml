@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: demo-producer
+
+server:
+  port: 8090
+
+
+logging:
+  level:
+    root: info
+
+management:
+  endpoint:
+    health:
+      show-details: always
+      group:
+        liveness:
+          include:
+            - ping
+        readiness:
+          include:
+            - ping
