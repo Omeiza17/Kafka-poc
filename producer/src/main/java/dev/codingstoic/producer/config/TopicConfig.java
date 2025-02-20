@@ -17,7 +17,7 @@ import static org.apache.kafka.clients.admin.AdminClientConfig.BOOTSTRAP_SERVERS
 import static org.apache.kafka.common.config.TopicConfig.RETENTION_MS_CONFIG;
 
 @Slf4j
-@Configuration
+//@Configuration
 public class TopicConfig {
 
     @Value("${kafka.bootstrapAddress}")

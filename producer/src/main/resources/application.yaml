@@ -7,9 +7,12 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
     bootstrap-servers: kafka:9092
     properties:
-      security.protocol: SASL_PLAINTEXT
-      sasl.mechanism: PLAIN
-      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin-user" password="Admin@Pass1";
+      security:
+        protocol: SASL_PLAINTEXT
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin-user" password="Admin@Pass1"
 
 
 server:
