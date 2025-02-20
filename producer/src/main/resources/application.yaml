@@ -12,7 +12,7 @@ spring:
       sasl:
         mechanism: PLAIN
         jaas:
-          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin-user" password="Admin@Pass1"
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin-user" password="Admin@Pass1";
 
 
 server:
