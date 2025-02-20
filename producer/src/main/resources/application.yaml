@@ -5,7 +5,7 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    bootstrap-servers: kafka:9092
+    bootstrap-servers: kafka.default.svc.cluster.local:9092
     admin:
       fail-fast: true
     properties:
@@ -38,4 +38,4 @@ management:
             - ping
 
 kafka:
-  bootstrapAddress: kafka:9092
+  bootstrapAddress: kafka.default.svc.cluster.local:9092

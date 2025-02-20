@@ -29,13 +29,13 @@ sasl:
 
   interbroker:
     user: inter_broker_user
-    password: "P@ssw0rd"
+    password: "Admin@Pass1"
     clientId: inter_broker_client
     clientSecret: ""
 
   controller:
     user: controller_user
-    password: "P@ssw0rd"
+    password: "Admin@Pass1"
     clientId: controller_broker_client
     clientSecret: ""
 
