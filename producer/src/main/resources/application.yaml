@@ -1,6 +1,16 @@
 spring:
   application:
     name: demo-producer
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    bootstrap-servers: kafka:9092
+    properties:
+      security.protocol: SASL_PLAINTEXT
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin-user" password="Admin@Pass1";
+
 
 server:
   port: 8090
@@ -21,3 +31,6 @@ management:
         readiness:
           include:
             - ping
+
+kafka:
+  bootstrapAddress: kafka:9092
