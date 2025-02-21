@@ -1,11 +1,11 @@
 spring:
   application:
-    name: demo-producer
+    name: producer-service
   kafka:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    bootstrap-servers: kafka.default.svc.cluster.local:9092
+    bootstrap-servers: kafka:9092
     admin:
       fail-fast: true
     properties:
@@ -14,7 +14,7 @@ spring:
       sasl:
         mechanism: PLAIN
         jaas:
-          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin-user" password="Admin@Pass1";
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin";
 
 
 server:
@@ -38,4 +38,4 @@ management:
             - ping
 
 kafka:
-  bootstrapAddress: kafka.default.svc.cluster.local:9092
+  bootstrapAddress: kafka:9092
