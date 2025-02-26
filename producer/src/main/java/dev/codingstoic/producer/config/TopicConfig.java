@@ -17,7 +17,7 @@ import static org.apache.kafka.clients.admin.AdminClientConfig.BOOTSTRAP_SERVERS
 import static org.apache.kafka.common.config.TopicConfig.RETENTION_MS_CONFIG;
 
 @Slf4j
-//@Configuration
+@Configuration
 public class TopicConfig {
 
     @Value("${kafka.bootstrapAddress}")
@@ -34,8 +34,7 @@ public class TopicConfig {
     @Bean
     public NewTopic topic() {
         return TopicBuilder.name(ACCOUNT_INGESTION_V1_TOPIC)
-                .partitions(10)
-                .replicas(3)
+                .partitions(5)
                 .config(RETENTION_MS_CONFIG, "86400000")
                 .build();
     }

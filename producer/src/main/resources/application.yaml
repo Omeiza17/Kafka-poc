@@ -5,16 +5,7 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    bootstrap-servers: kafka:9092
-    admin:
-      fail-fast: true
-    properties:
-      security:
-        protocol: SASL_PLAINTEXT
-      sasl:
-        mechanism: PLAIN
-        jaas:
-          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin";
+    bootstrap-servers: localhost:9092
 
 
 server:
@@ -38,4 +29,4 @@ management:
             - ping
 
 kafka:
-  bootstrapAddress: kafka:9092
+  bootstrapAddress: localhost:9092
