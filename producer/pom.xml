@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.2</version>
+        <version>3.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>dev.codingstoic</groupId>
@@ -150,18 +150,21 @@
                 </executions>
                 <configuration>
                     <from>
-                        <image>openjdk:23-slim</image>
+                        <image>eclipse-temurin:23-jre</image>
                     </from>
                     <to>
-                        <image>kafka-poc-producer:latest</image>
+                        <image>gcr.io/kafka-sample-1/kafka-poc-producer:latest</image>
                         <tags>
                             <tag>${project.version}</tag>
-                            <tag>${git.commit.id.abbrev}</tag>
                             <tag>latest</tag>
                         </tags>
                     </to>
                     <container>
                         <mainClass>dev.codingstoic.producer.ProducerApplication</mainClass>
+                        <jvmFlags>
+                            <jvmFlag>-XX:+UseContainerSupport</jvmFlag>
+                            <jvmFlag>-XX:MaxRAMPercentage=80</jvmFlag>
+                        </jvmFlags>
                         <ports>
                             <port>8090</port>
                         </ports>

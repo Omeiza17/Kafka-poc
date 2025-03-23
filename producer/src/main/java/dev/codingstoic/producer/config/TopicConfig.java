@@ -12,7 +12,8 @@ import org.springframework.kafka.core.KafkaAdmin;
 import java.util.HashMap;
 import java.util.Map;
 
-import static dev.codingstoic.producer.constant.Constants.ACCOUNT_INGESTION_V2_TOPIC;
+import static dev.codingstoic.producer.constant.Constants.ACCOUNT_INGESTION_TOPIC;
+import static dev.codingstoic.producer.constant.Constants.CUSTOMER_INGESTION_TOPIC;
 import static org.apache.kafka.clients.admin.AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG;
 import static org.apache.kafka.common.config.TopicConfig.RETENTION_MS_CONFIG;
 
@@ -43,8 +44,16 @@ public class TopicConfig {
 
     @Bean
     public NewTopic ingestionTopic() {
-        return TopicBuilder.name(ACCOUNT_INGESTION_V2_TOPIC)
+        return TopicBuilder.name(ACCOUNT_INGESTION_TOPIC)
                 .partitions(5)
+                .config(RETENTION_MS_CONFIG, "86400000")
+                .build();
+    }
+
+    @Bean
+    public NewTopic customerIngestionTopic() {
+        return TopicBuilder.name(CUSTOMER_INGESTION_TOPIC)
+                .partitions(3)
                 .config(RETENTION_MS_CONFIG, "86400000")
                 .build();
     }
