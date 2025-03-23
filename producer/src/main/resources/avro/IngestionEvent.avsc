@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "IngestionEvent",
+  "namespace": "dev.codingstoic.producer.model.account",
+  "fields": [
+    {
+      "name": "dataType",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "type": "string"
+    }
+  ]
+}
