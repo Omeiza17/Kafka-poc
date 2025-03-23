@@ -4,16 +4,8 @@
   "namespace": "dev.codingstoic.producer.model.account",
   "fields": [
     {
-      "name": "ingestionType",
-      "type": {
-        "type": "enum",
-        "name": "IngestionType",
-        "symbols": [
-          "ACCOUNT",
-          "FIXED_DEPOSIT",
-          "CUSTOMER"
-        ]
-      }
+      "name": "dataType",
+      "type": "string"
     },
     {
       "name": "data",

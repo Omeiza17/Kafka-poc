@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: consumer-service
+  kafka:
+    listener:
+      ack-mode: record
+    bootstrap-servers: ${bootstrap-servers}
+    properties:
+      schema.registry.url: ${schema-registry-url}
+      specific.avro.reader: true
+      security:
+        protocol: SASL_PLAINTEXT
+      sasl:
+        mechanism: PLAIN
+        jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username=${kafka-user} password=${kafka-password};
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      group-id: ingestion-consumer
+      auto-offset-reset: earliest
+
+server:
+  port: 8070
