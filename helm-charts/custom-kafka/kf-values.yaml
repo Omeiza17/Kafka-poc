@@ -49,7 +49,7 @@ sasl:
     passwords: "admin"
 
 controller:
-  replicaCount: 3
+  replicaCount: 2
   automountServiceAccountToken: true
 
 service:

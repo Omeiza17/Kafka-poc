@@ -4,9 +4,10 @@ spring:
   kafka:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
     bootstrap-servers: ${bootstrap-servers}
     properties:
+      schema.registry.url: ${schema-registry-url}
       security:
         protocol: SASL_PLAINTEXT
       sasl:

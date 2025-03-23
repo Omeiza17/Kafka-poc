@@ -13,7 +13,6 @@ service:
 
 kafka:
   ## @param kafka.enabled Enable/disable Kafka chart installation
-  ##
   enabled: false
 
 ##
@@ -24,7 +23,7 @@ externalKafka:
   ## @param externalKafka.brokers Array of Kafka brokers to connect to. Format: protocol://broker_hostname:port
   ##
   brokers:
-    - PLAINTEXT://localhost:9092
+    - SASL_PLAINTEXT://kafka:9092
   ## @param externalKafka.listener.protocol Kafka listener protocol. Allowed protocols: PLAINTEXT, SASL_PLAINTEXT, SASL_SSL and SSL
   ##
   listener:

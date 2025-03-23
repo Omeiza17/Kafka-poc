@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static dev.codingstoic.producer.constant.Constants.ACCOUNT_INGESTION_V1_TOPIC;
+import static dev.codingstoic.producer.constant.Constants.ACCOUNT_INGESTION_V2_TOPIC;
 
 @Slf4j
 @RestController
@@ -24,7 +24,7 @@ public class AccountController {
     @PostMapping
     public ResponseEntity<Void> postAccountForIngestion(@RequestBody AccountIngestionRequest ingestionRequest) {
         log.info("Received request for ingestion request {}", ingestionRequest);
-        accountProducer.send(ACCOUNT_INGESTION_V1_TOPIC, ingestionRequest.accountNumber());
+        accountProducer.send(ACCOUNT_INGESTION_V2_TOPIC, ingestionRequest.accountNumber());
         return ResponseEntity.ok().build();
     }
 }
