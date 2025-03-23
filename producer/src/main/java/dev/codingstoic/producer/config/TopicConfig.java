@@ -22,12 +22,22 @@ public class TopicConfig {
 
     @Value("${kafka.bootstrapAddress}")
     private String bootstrapAddress;
+    @Value("${spring.kafka.properties.security.protocol}")
+    private String protocol;
+    @Value("${spring.kafka.properties.sasl.mechanism}")
+    private String mechanism;
+    @Value("${spring.kafka.properties.sasl.jaas.config}")
+    private String jaasConfig;
 
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> config = new HashMap<>();
+        log.info("TopicConfig | values {} - {} - {} - {}", bootstrapAddress, protocol, mechanism, jaasConfig);
         config.put(BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+        config.put("security.protocol", protocol);
+        config.put("sasl.mechanism", mechanism);
+        config.put("sasl.jaas.config", jaasConfig);
         return new KafkaAdmin(config);
     }
 
