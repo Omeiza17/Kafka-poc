@@ -30,4 +30,4 @@ externalKafka:
     protocol: SASL_PLAINTEXT
   sasl:
     user: "admin"
-    password: "admin"
+    existingSecret: "kafka-user-passwords"

@@ -92,10 +92,11 @@ externalAccess:
       ports:
         external: 9095  # External port for Kafka
       loadBalancerClass: ""
-      loadBalancerIPs: []
+      loadBalancerIPs: ["", ""]
       loadBalancerNames: []
       loadBalancerAnnotations:
-        networking.gke.io/load-balancer-type: "External"  # GKE-specific annotation for external LoadBalancer
+        - networking.gke.io/load-balancer-type: "External"  # For replica 1
+        - networking.gke.io/load-balancer-type: "External"  # For replica 2
       loadBalancerSourceRanges:
         - 0.0.0.0/0  # Allow traffic from all IPs (restrict this for production)
       allocateLoadBalancerNodePorts: true
@@ -114,10 +115,11 @@ externalAccess:
       ports:
         external: 9095  # External port for Kafka
       loadBalancerClass: ""
-      loadBalancerIPs: []
+      loadBalancerIPs: ["", ""]
       loadBalancerNames: []
       loadBalancerAnnotations:
-        networking.gke.io/load-balancer-type: "External"  # GKE-specific annotation for external LoadBalancer
+        - networking.gke.io/load-balancer-type: "External"  # For replica 1
+        - networking.gke.io/load-balancer-type: "External"  # For replica 2
       loadBalancerSourceRanges:
         - 0.0.0.0/0  # Allow traffic from all IPs (restrict this for production)
       allocateLoadBalancerNodePorts: true
